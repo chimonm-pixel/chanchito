@@ -332,7 +332,7 @@ function setSyncState(st){
   p.className='sync-pill'+(st==='syncing'?' syncing':st==='error'?' error':'');
   t.textContent=st==='syncing'?'sync...':st==='error'?'error':'sync';
 }
-function todayStr(){return new Date().toISOString().split('T')[0];}
+function todayStr(){const d=new Date();const y=d.getFullYear();const m=String(d.getMonth()+1).padStart(2,'0');const day=String(d.getDate()).padStart(2,'0');return `${y}-${m}-${day}`;}
 function fmtDate(s){if(!s)return '';const p=String(s).split('-');return `${parseInt(p[2])} ${MONTHS[parseInt(p[1])-1].substring(0,3)} ${p[0]}`;}
 
 S.date=todayStr();
